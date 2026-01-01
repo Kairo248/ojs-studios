@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
   title: "Sound Engineer | Equipment Hire & Mixing",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#0b0f19] text-white font-sans">{children}</body>
+      <body className="bg-[#0b0f19] text-white font-sans">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
