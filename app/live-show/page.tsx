@@ -9,16 +9,17 @@ const liveShowPackages = [
   {
     id: 1,
     name: "Small Venue Package",
-    price: "$599",
-    duration: "4-6 hours",
+    price: "R4,050",
+    duration: "Full day",
     audience: "Up to 150 people",
     image: "/about.jpg", // placeholder for now
     description: "Perfect for intimate venues, small concerts, and private events",
+    equipment: "Tops and monitors (No subs)",
     features: [
       "Professional PA system setup",
+      "Tops and monitor speakers",
       "2-4 microphones with stands",
       "Basic mixing board operation",
-      "Monitor speakers for performers",
       "Cable management and setup",
       "Sound check and testing",
       "On-site technical support",
@@ -30,13 +31,15 @@ const liveShowPackages = [
   {
     id: 2,
     name: "Medium Venue Package", 
-    price: "$1,299",
-    duration: "6-8 hours",
+    price: "R10,600",
+    duration: "Full day",
     audience: "150-500 people",
     image: "/pro-podcast.jpg", // placeholder for now
     description: "Comprehensive sound solution for mid-sized venues and events",
+    equipment: "Tops, monitors, and bins (subwoofers)",
     features: [
-      "Advanced PA system with subwoofers",
+      "Advanced PA system with subwoofers (bins)",
+      "Tops and monitor speakers",
       "Up to 8 microphones (vocal + instrument)",
       "Professional digital mixing console",
       "Stage monitors and wedges",
@@ -49,31 +52,6 @@ const liveShowPackages = [
     ],
     popular: true,
     venues: ["Concert Halls", "Wedding Venues", "Festival Stages", "Churches"]
-  },
-  {
-    id: 3,
-    name: "Large Event Package",
-    price: "$2,499",
-    duration: "Full day setup",
-    audience: "500+ people",
-    image: "/enterprise-podcast.jpg", // placeholder for now
-    description: "Professional concert-grade sound system for large events",
-    features: [
-      "Line array speaker system",
-      "Multi-zone audio coverage",
-      "16+ channel mixing capabilities",
-      "Wireless monitoring systems",
-      "Multi-stage coordination",
-      "Professional lighting integration",
-      "Live recording capabilities",
-      "Dedicated sound engineer team",
-      "Real-time audio monitoring",
-      "Emergency backup systems",
-      "Complete setup and breakdown",
-      "Pre-event venue acoustics consultation"
-    ],
-    popular: false,
-    venues: ["Outdoor Festivals", "Large Concerts", "Convention Centers", "Stadiums"]
   }
 ];
 
@@ -243,6 +221,12 @@ export default function LiveShowPage() {
                     <Users className="w-4 h-4" />
                     <span>{pkg.audience}</span>
                   </div>
+                  {pkg.equipment && (
+                    <div className="mt-2 p-3 bg-[#9d4edd]/10 border border-[#9d4edd]/30 rounded-lg">
+                      <p className="text-sm font-semibold text-[#9d4edd] mb-1">Equipment Included:</p>
+                      <p className="text-xs text-gray-300">{pkg.equipment}</p>
+                    </div>
+                  )}
                 </div>
 
                 {/* Venue Types */}

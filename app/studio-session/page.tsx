@@ -9,20 +9,21 @@ const studioPackages = [
   {
     id: 1,
     name: "Basic Recording Package",
-    price: "$299",
-    duration: "4 hours",
-    tracks: "Up to 8 tracks",
+    price: "R3,800",
+    duration: "Full day",
+    tracks: "Up to 16 tracks",
     image: "/basic-podcast.jpg",
     description: "Perfect for solo artists, demos, and basic recordings",
     features: [
-      "4-hour studio time",
+      "Full day studio access",
       "Professional microphone setup",
-      "Up to 8 simultaneous tracks",
+      "Up to 16 simultaneous tracks",
       "Basic mixing and EQ",
       "Audio editing and cleanup",
       "Digital delivery (WAV/MP3)",
       "One revision included",
-      "Professional studio environment"
+      "Professional studio environment",
+      "Sound engineer assistance"
     ],
     popular: false,
     idealFor: ["Solo Artists", "Demos", "Voice Overs", "Simple Recordings"]
@@ -30,52 +31,27 @@ const studioPackages = [
   {
     id: 2,
     name: "Professional Production",
-    price: "$799",
-    duration: "8 hours",
-    tracks: "Up to 24 tracks", 
+    price: "R13,500",
+    duration: "Multi-day",
+    tracks: "Unlimited tracks", 
     image: "/pro-podcast.jpg",
-    description: "Complete production package for serious music projects",
+    description: "Complete professional production package for serious music projects",
     features: [
-      "8-hour studio session",
+      "Extended studio session time",
       "Multi-microphone setup",
-      "Up to 24 simultaneous tracks",
+      "Unlimited track recording",
       "Advanced mixing and mastering",
       "Auto-tuning and vocal processing",
-      "Instrument recording (guitar, bass, keys)",
+      "Instrument recording (guitar, bass, keys, drums)",
       "Sound design and effects",
       "Multiple format delivery",
-      "Three revision rounds",
+      "Multiple revision rounds",
       "CD/Digital master preparation",
-      "Basic artwork consultation"
+      "Professional mixing engineer",
+      "Mastering services included"
     ],
     popular: true,
-    idealFor: ["Bands", "EP Recording", "Commercial Projects", "Music Videos"]
-  },
-  {
-    id: 3,
-    name: "Album Production Package",
-    price: "$1,999",
-    duration: "3 days",
-    tracks: "Unlimited tracks",
-    image: "/enterprise-podcast.jpg",
-    description: "Complete album production with professional mixing and mastering",
-    features: [
-      "3 full days of studio time",
-      "Unlimited track recording",
-      "Professional session musicians available",
-      "Advanced mixing and mastering suite",
-      "Vocal coaching and direction",
-      "Instrument rental included",
-      "Live room and isolation booths",
-      "Digital and analog processing",
-      "Unlimited revisions",
-      "Album artwork design",
-      "Distribution consultation",
-      "Marketing strategy session",
-      "Master delivery in all formats"
-    ],
-    popular: false,
-    idealFor: ["Full Albums", "Professional Artists", "Record Labels", "Commercial Releases"]
+    idealFor: ["Bands", "EP Recording", "Commercial Projects", "Music Videos", "Full Albums"]
   }
 ];
 

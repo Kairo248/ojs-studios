@@ -8,59 +8,46 @@ import Link from "next/link";
 const packages = [
   {
     id: 1,
-    name: "Basic Podcast Setup",
-    price: "R1500",
-    duration: "2-3 hours",
-    image: "/basic-podcast.jpg",
-    description: "Perfect for beginners starting their podcast journey",
-    features: [
-      "Professional microphone setup",
-      "Audio interface configuration",
-      "Basic recording software training",
-      "Room acoustics consultation",
-      "Initial test recording session",
-      "Basic editing tips"
-    ],
-    popular: false
-  },
-  {
-    id: 2,
-    name: "Professional Podcast Studio",
-    price: "R2500",
-    duration: "Full day setup",
+    name: "Full Day Podcast Setup",
+    price: "R4,500",
+    duration: "Full day",
     image: "/pro-podcast.jpg",
-    description: "Complete professional setup for serious podcasters",
+    description: "Complete professional podcast setup for a full day of recording",
     features: [
+      "Full day studio access",
       "Multi-microphone setup (up to 4 hosts)",
-      "Professional mixing board",
-      "Advanced audio processing",
+      "Professional mixing board configuration",
+      "Advanced audio processing and EQ",
       "Lighting setup consultation",
       "Video recording capability",
       "Advanced editing software training",
-      "Noise reduction setup",
-      "Live streaming configuration"
+      "Noise reduction and acoustic treatment",
+      "Live streaming configuration",
+      "Professional sound engineer on-site"
     ],
     popular: true
   },
   {
-    id: 3,
+    id: 2,
     name: "Premium Enterprise Package",
-    price: "R5000",
-    duration: "2-3 days",
+    price: "Request Quote",
+    duration: "Custom",
     image: "/enterprise-podcast.jpg",
-    description: "Full-scale professional podcast production setup",
+    description: "Tailored premium solution designed specifically for your podcast needs",
     features: [
-      "Complete studio design and setup",
-      "Professional broadcast equipment",
-      "Multi-camera video setup",
+      "Custom studio design and setup",
+      "Professional broadcast-grade equipment",
+      "Multi-camera video production setup",
       "Live streaming to multiple platforms",
       "Custom intro/outro production",
       "Brand identity integration",
-      "Team training (up to 6 people)",
-      "3 months of technical support",
-      "Monthly equipment maintenance"
+      "Comprehensive team training",
+      "Extended technical support",
+      "Ongoing equipment maintenance",
+      "Dedicated project manager"
     ],
-    popular: false
+    popular: false,
+    customQuote: true
   }
 ];
 
@@ -203,8 +190,17 @@ export default function PodcastPage() {
                 </div>
 
                 <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-bold text-[#00b4d8]">{pkg.price}</span>
-                  <span className="text-gray-400">• {pkg.duration}</span>
+                  {pkg.customQuote ? (
+                    <div className="flex flex-col">
+                      <span className="text-3xl font-bold text-[#9d4edd]">{pkg.price}</span>
+                      <span className="text-sm text-gray-400 mt-1">{pkg.duration}</span>
+                    </div>
+                  ) : (
+                    <>
+                      <span className="text-4xl font-bold text-[#00b4d8]">{pkg.price}</span>
+                      <span className="text-gray-400">• {pkg.duration}</span>
+                    </>
+                  )}
                 </div>
 
                 {/* Features List */}
@@ -218,13 +214,21 @@ export default function PodcastPage() {
                 </ul>
 
                 {/* CTA Button */}
-                <button className={`w-full py-4 rounded-lg font-semibold transition-all duration-300 ${
-                  pkg.popular
-                    ? 'bg-gradient-to-r from-[#00b4d8] to-[#9d4edd] text-white hover:opacity-90'
-                    : 'border border-[#00b4d8] text-[#00b4d8] hover:bg-[#00b4d8] hover:text-white'
-                }`}>
-                  Get Started
-                </button>
+                {pkg.customQuote ? (
+                  <Link href="/#contact">
+                    <button className="w-full py-4 rounded-lg font-semibold transition-all duration-300 border border-[#00b4d8] text-[#00b4d8] hover:bg-[#00b4d8] hover:text-white">
+                      Request Tailored Quote
+                    </button>
+                  </Link>
+                ) : (
+                  <button className={`w-full py-4 rounded-lg font-semibold transition-all duration-300 ${
+                    pkg.popular
+                      ? 'bg-gradient-to-r from-[#00b4d8] to-[#9d4edd] text-white hover:opacity-90'
+                      : 'border border-[#00b4d8] text-[#00b4d8] hover:bg-[#00b4d8] hover:text-white'
+                  }`}>
+                    Get Started
+                  </button>
+                )}
               </div>
             </motion.div>
           ))}
