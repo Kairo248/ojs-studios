@@ -5,6 +5,16 @@ import { ArrowRight, Check, Headphones, Mic, Music, Star, Clock, Users, Zap, Set
 import Image from "next/image";
 import Link from "next/link";
 
+const WHATSAPP_NUMBER = "27732933543";
+
+// Helper function to generate WhatsApp URL with pre-filled message
+const getWhatsAppUrl = (packageName: string, price: string, serviceType: string = "Studio Session") => {
+  const message = encodeURIComponent(
+    `Hello! I'm interested in the ${packageName} (${price}) for ${serviceType}. Could you please provide more information and availability?`
+  );
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+};
+
 const studioPackages = [
   {
     id: 1,
@@ -104,7 +114,7 @@ export default function StudioPage() {
   return (
     <div className="min-h-screen bg-[#0b0f19]">
       {/* Hero Section */}
-      <section className="relative py-20 px-6 text-center min-h-screen flex items-center">
+      <section className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 text-center min-h-screen flex items-center">
         {/* Background Video */}
         <video
           className="absolute inset-0 w-full h-full object-cover opacity-25"
@@ -134,26 +144,26 @@ export default function StudioPage() {
             </motion.div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white px-2">
             Studio <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6f00] to-[#00b4d8]">
               Sessions
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
             Professional recording, mixing, and mastering services. From demos to full album production in our state-of-the-art studio.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4">
             <Link href="#packages">
-              <button className="bg-gradient-to-r from-[#ff6f00] to-[#00b4d8] text-white px-8 py-4 rounded-lg shadow-lg hover:opacity-90 transition flex items-center gap-2">
-                View Packages <ArrowRight size={20} />
+              <button className="bg-gradient-to-r from-[#ff6f00] to-[#00b4d8] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg shadow-lg hover:opacity-90 transition flex items-center justify-center gap-2 text-sm sm:text-base w-full sm:w-auto">
+                View Packages <ArrowRight size={18} />
               </button>
             </Link>
             
-            <Link href="/contact">
-              <button className="border border-[#ff6f00] text-[#ff6f00] px-8 py-4 rounded-lg hover:bg-[#ff6f00] hover:text-white transition">
+            <Link href="/#contact">
+              <button className="border border-[#ff6f00] text-[#ff6f00] px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-[#ff6f00] hover:text-white transition text-sm sm:text-base w-full sm:w-auto">
                 Book Session
               </button>
             </Link>
@@ -161,39 +171,39 @@ export default function StudioPage() {
         </motion.div>
         
         {/* Studio indicator */}
-        <div className="absolute bottom-8 right-8 z-20">
-          <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-3 py-2 rounded-full text-white text-sm">
+        <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 z-20">
+          <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-2 sm:px-3 py-1.5 sm:py-2 rounded-full text-white text-xs sm:text-sm">
             <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-            <span className="text-xs">Recording Studio</span>
+            <span className="text-[10px] sm:text-xs">Recording Studio</span>
           </div>
         </div>
       </section>
 
       {/* Packages Section */}
-      <section id="packages" className="py-20 px-6 max-w-7xl mx-auto">
+      <section id="packages" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 px-2">
             Studio Recording Packages
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-4">
             Professional recording packages designed for every project size, from solo demos to full album production.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {studioPackages.map((pkg, index) => (
             <motion.div
               key={pkg.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`relative bg-gradient-to-br from-[#1a1f2e] to-[#2a2f3e] rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 ${
-                pkg.popular ? 'ring-2 ring-[#ff6f00] scale-105' : ''
+              className={`relative bg-gradient-to-br from-[#1a1f2e] to-[#2a2f3e] rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 ${
+                pkg.popular ? 'ring-2 ring-[#ff6f00] sm:scale-105' : ''
               }`}
             >
               {pkg.popular && (
@@ -238,11 +248,11 @@ export default function StudioPage() {
 
                 <div className="space-y-2">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-[#ff6f00]">{pkg.price}</span>
-                    <span className="text-gray-400">• {pkg.duration}</span>
+                    <span className="text-3xl sm:text-4xl font-bold text-[#ff6f00]">{pkg.price}</span>
+                    <span className="text-sm sm:text-base text-gray-400">• {pkg.duration}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-400 text-sm">
-                    <Music className="w-4 h-4" />
+                  <div className="flex items-center gap-2 text-gray-400 text-xs sm:text-sm">
+                    <Music className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span>{pkg.tracks}</span>
                   </div>
                 </div>
@@ -262,21 +272,28 @@ export default function StudioPage() {
                 {/* Features List */}
                 <ul className="space-y-2 max-h-56 overflow-y-auto">
                   {pkg.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3">
-                      <Check className="w-4 h-4 text-[#ff6f00] mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm">{feature}</span>
+                    <li key={featureIndex} className="flex items-start gap-2 sm:gap-3">
+                      <Check className="w-3 h-3 sm:w-4 sm:h-4 text-[#ff6f00] mt-0.5 flex-shrink-0" />
+                      <span className="text-xs sm:text-sm text-gray-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* CTA Button */}
-                <button className={`w-full py-4 rounded-lg font-semibold transition-all duration-300 ${
-                  pkg.popular
-                    ? 'bg-gradient-to-r from-[#ff6f00] to-[#00b4d8] text-white hover:opacity-90'
-                    : 'border border-[#ff6f00] text-[#ff6f00] hover:bg-[#ff6f00] hover:text-white'
-                }`}>
-                  Book This Package
-                </button>
+                <a 
+                  href={getWhatsAppUrl(pkg.name, pkg.price, "Studio Session")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full"
+                >
+                  <button className={`w-full py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base ${
+                    pkg.popular
+                      ? 'bg-gradient-to-r from-[#ff6f00] to-[#00b4d8] text-white hover:opacity-90'
+                      : 'border border-[#ff6f00] text-[#ff6f00] hover:bg-[#ff6f00] hover:text-white'
+                  }`}>
+                    Book This Package
+                  </button>
+                </a>
               </div>
             </motion.div>
           ))}
@@ -370,12 +387,12 @@ export default function StudioPage() {
             Book your studio session today and bring your music to life with our professional recording services.
           </p>
           
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact">
+         <div className="flex flex-wrap justify-center gap-4">
+           {/* <Link href="/contact">
               <button className="bg-gradient-to-r from-[#ff6f00] to-[#00b4d8] text-white px-8 py-4 rounded-lg shadow-lg hover:opacity-90 transition">
                 Book Your Session Now
               </button>
-            </Link>
+            </Link> */}
             
             <Link href="/">
               <button className="border border-[#ff6f00] text-[#ff6f00] px-8 py-4 rounded-lg hover:bg-[#ff6f00] hover:text-white transition">

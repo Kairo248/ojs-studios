@@ -32,12 +32,12 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-[#0e1424] px-6 text-center">
-      <h2 className="text-4xl mb-12 text-[#9d4edd]">Services</h2>
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <section id="services" className="py-12 sm:py-16 md:py-20 bg-[#0e1424] px-4 sm:px-6 text-center">
+      <h2 className="text-3xl sm:text-4xl mb-8 sm:mb-12 text-[#9d4edd]">Services</h2>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
         {services.map((s, i) => {
           const CardContent = (
-            <div className="bg-[#1a2038] p-8 rounded-2xl shadow-lg hover:shadow-[#00b4d8]/40 transition-all duration-300 group-hover:bg-[#1e2442] h-full relative overflow-hidden">
+            <div className="bg-[#1a2038] p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-[#00b4d8]/40 transition-all duration-300 group-hover:bg-[#1e2442] h-full relative overflow-hidden">
               {/* Gradient overlay that appears on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#00b4d8]/5 to-[#9d4edd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
@@ -50,8 +50,8 @@ export default function Services() {
                 <div className="text-[#00b4d8] mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">
                   {s.icon}
                 </div>
-                <h3 className="text-2xl mb-2 text-white group-hover:text-[#00b4d8] transition-colors duration-300">{s.title}</h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 mb-6">{s.desc}</p>
+                <h3 className="text-xl sm:text-2xl mb-2 text-white group-hover:text-[#00b4d8] transition-colors duration-300">{s.title}</h3>
+                <p className="text-sm sm:text-base text-gray-400 group-hover:text-gray-300 transition-colors duration-300 mb-4 sm:mb-6">{s.desc}</p>
                 
                 {/* Action button that appears on hover */}
                 <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">

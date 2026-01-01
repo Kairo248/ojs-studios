@@ -6,31 +6,19 @@ export default function Footer() {
   const socialLinks = [
     { 
       icon: Facebook, 
-      href: "https://facebook.com/soundworks", 
+      href: "https://www.facebook.com/OJSStudios", 
       label: "Facebook",
       color: "hover:text-blue-500" 
     },
     { 
       icon: Instagram, 
-      href: "https://instagram.com/soundworks", 
+      href: "https://www.instagram.com/lubabalosibhene/", 
       label: "Instagram",
       color: "hover:text-pink-500" 
     },
     { 
-      icon: Twitter, 
-      href: "https://twitter.com/soundworks", 
-      label: "Twitter",
-      color: "hover:text-blue-400" 
-    },
-    { 
-      icon: Youtube, 
-      href: "https://youtube.com/soundworks", 
-      label: "YouTube",
-      color: "hover:text-red-500" 
-    },
-    { 
       icon: Mail, 
-      href: "mailto:info@soundworks.com", 
+      href: "mailto:Lsstudios@gmail.com", 
       label: "Email",
       color: "hover:text-[#00b4d8]" 
     },
@@ -43,12 +31,12 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0b0f19] py-8 text-center border-t border-gray-800">
-      <div className="max-w-6xl mx-auto px-6">
+    <footer className="bg-[#0b0f19] py-6 sm:py-8 text-center border-t border-gray-800">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Social Media Icons */}
-        <div className="mb-6">
-          <h3 className="text-lg font-semibold text-white mb-4">Connect With Us</h3>
-          <div className="flex justify-center space-x-6">
+        <div className="mb-4 sm:mb-6">
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Connect With Us</h3>
+          <div className="flex justify-center space-x-4 sm:space-x-6">
             {socialLinks.map((social, index) => {
               const Icon = social.icon;
               return (
@@ -65,7 +53,7 @@ export default function Footer() {
                   transition={{ delay: index * 0.1 }}
                   aria-label={social.label}
                 >
-                  <Icon size={24} />
+                  <Icon size={20} className="sm:w-6 sm:h-6" />
                 </motion.a>
               );
             })}
@@ -74,7 +62,7 @@ export default function Footer() {
 
         {/* Footer Text */}
         <motion.p 
-          className="text-gray-400"
+          className="text-gray-400 text-sm sm:text-base"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
