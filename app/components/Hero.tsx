@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-[#0b0f19] via-[#1a1f2e] to-[#2a2f3e]">
+    <section className="relative min-h-svh flex flex-col justify-center items-center text-center bg-gradient-to-br from-[#0b0f19] via-[#1a1f2e] to-[#2a2f3e]">
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-30"
         autoPlay
