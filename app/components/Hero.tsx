@@ -11,6 +11,7 @@ export default function Hero() {
         autoPlay
         loop
         muted
+        playsInline
         src="/hero-dummy.mp4"
       ></video>
       
@@ -31,10 +32,18 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4">
-          <button className="btn-primary text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3">Hire Equipment</button>
-          <button className="bg-gradient-to-r from-[#9d4edd] to-[#ff6f00] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg hover:opacity-90 transition flex items-center justify-center gap-2 text-sm sm:text-base">
+          <a
+            href="#services"
+            className="btn-primary text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 inline-flex items-center justify-center"
+          >
+            Hire Equipment
+          </a>
+          <a
+            href="#contact"
+            className="bg-gradient-to-r from-[#9d4edd] to-[#ff6f00] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg hover:opacity-90 transition inline-flex items-center justify-center gap-2 text-sm sm:text-base"
+          >
             Book a Session <ArrowRight size={18} />
-          </button>
+          </a>
         </div>
       </motion.div>
     </section>

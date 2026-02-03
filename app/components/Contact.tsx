@@ -1,15 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { CheckCircle, XCircle, Loader2 } from "lucide-react";
+import { CheckCircle, XCircle } from "lucide-react";
+
+const WHATSAPP_NUMBER = "27732933543"; // international format, no "+"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    phone: "",
     message: "",
   });
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
@@ -26,52 +28,44 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     // Basic validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+    if (!formData.name.trim() || !formData.message.trim()) {
       setStatus("error");
-      setErrorMessage("Please fill in all fields");
+      setErrorMessage("Please fill in your name and message");
       return;
     }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setStatus("error");
-      setErrorMessage("Please enter a valid email address");
-      return;
-    }
-
-    setStatus("loading");
-    setErrorMessage("");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const lines = [
+        "Hi OJS Studios,",
+        "",
+        `Name: ${formData.name.trim()}`,
+        formData.phone.trim() ? `Phone: ${formData.phone.trim()}` : null,
+        "",
+        "Message:",
+        formData.message.trim(),
+      ].filter(Boolean) as string[];
 
-      const data = await response.json();
+      const text = encodeURIComponent(lines.join("\n"));
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 
-      if (response.ok) {
-        setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
-        // Reset success message after 5 seconds
-        setTimeout(() => {
-          setStatus("idle");
-        }, 5000);
-      } else {
-        setStatus("error");
-        setErrorMessage(data.error || "Failed to send message. Please try again.");
-      }
-    } catch (error) {
+      // Open WhatsApp (mobile app or web)
+      window.open(url, "_blank", "noopener,noreferrer");
+
+      setStatus("success");
+      setErrorMessage("");
+      setFormData({ name: "", phone: "", message: "" });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setStatus("idle");
+      }, 5000);
+    } catch {
       setStatus("error");
-      setErrorMessage("Network error. Please check your connection and try again.");
+      setErrorMessage("Could not open WhatsApp. Please try again.");
     }
   };
 
@@ -86,18 +80,15 @@ export default function Contact() {
           value={formData.name}
           onChange={handleChange}
           required
-          disabled={status === "loading"}
-          className="p-3 rounded bg-[#1a2038] border-none outline-none text-white disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-3 rounded bg-[#1a2038] border-none outline-none text-white"
         />
         <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
+          type="tel"
+          name="phone"
+          placeholder="Your Phone (optional)"
+          value={formData.phone}
           onChange={handleChange}
-          required
-          disabled={status === "loading"}
-          className="p-3 rounded bg-[#1a2038] border-none outline-none text-white disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-3 rounded bg-[#1a2038] border-none outline-none text-white"
         />
         <textarea
           name="message"
@@ -105,8 +96,7 @@ export default function Contact() {
           value={formData.message}
           onChange={handleChange}
           required
-          disabled={status === "loading"}
-          className="p-3 rounded bg-[#1a2038] border-none outline-none text-white h-32 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-3 rounded bg-[#1a2038] border-none outline-none text-white h-32 resize-none"
         ></textarea>
         
         {/* Status Messages */}
@@ -117,7 +107,7 @@ export default function Contact() {
             className="flex items-center justify-center gap-2 p-3 bg-green-500/20 border border-green-500/50 rounded text-green-400 text-sm sm:text-base"
           >
             <CheckCircle size={18} className="flex-shrink-0" />
-            <span>Message sent successfully! We'll get back to you soon.</span>
+            <span>WhatsApp opened! Send your message to complete.</span>
           </motion.div>
         )}
 
@@ -134,25 +124,11 @@ export default function Contact() {
 
         <button
           type="submit"
-          disabled={status === "loading"}
-          className="bg-gradient-to-r from-[#00b4d8] to-[#9d4edd] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base"
+          className="bg-gradient-to-r from-[#00b4d8] to-[#9d4edd] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:opacity-90 transition flex items-center justify-center gap-2 text-sm sm:text-base"
         >
-          {status === "loading" ? (
-            <>
-              <Loader2 size={18} className="animate-spin" />
-              Sending...
-            </>
-          ) : (
-            "Send Message"
-          )}
+          Send on WhatsApp
         </button>
       </form>
-      <div className="mt-6 text-gray-400 text-sm sm:text-base">
-        or reach me via WhatsApp:{" "}
-        <a href="https://wa.me/27732933543" className="text-[#9d4edd] underline hover:text-[#9d4edd]/80">
-          Click Here
-        </a>
-      </div>
     </section>
   );
 }

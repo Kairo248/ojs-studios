@@ -9,13 +9,11 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { href: "#about", label: "About" },
     { href: "#services", label: "Services" },
     { href: "/podcast", label: "Podcast Setup" },
     { href: "/live-show", label: "Live Shows" },
     { href: "/studio-session", label: "Studio Sessions" },
-    //{ href: "#portfolio", label: "Portfolio" },
-    { href: "#testimonials", label: "Testimonials" },
+    { href: "#about", label: "About" },
     { href: "#contact", label: "Contact" },
   ];
 

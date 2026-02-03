@@ -313,7 +313,6 @@ export default function LiveShowPage() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
                 <p className="text-gray-300 mb-4">{service.description}</p>
-                <div className="text-[#ff6f00] font-semibold">{service.price}</div>
               </motion.div>
             ))}
           </div>
