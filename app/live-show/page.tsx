@@ -88,9 +88,9 @@ const additionalServices = [
 
 export default function LiveShowPage() {
   return (
-    <div className="min-h-screen bg-[#0b0f19]">
+    <div className="min-h-svh bg-[#0b0f19]">
       {/* Hero Section */}
-      <section className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 text-center min-h-screen flex items-center">
+      <section className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 text-center min-h-svh flex items-center">
         {/* Background Video - using the same video as podcast for consistency */}
         <video
           className="absolute inset-0 w-full h-full object-cover opacity-20"
@@ -283,7 +283,7 @@ export default function LiveShowPage() {
       </section>
 
       {/* Additional Services */}
-      <section className="py-20 px-6 bg-gradient-to-r from-[#1a1f2e] to-[#2a2f3e]">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-r from-[#1a1f2e] to-[#2a2f3e]">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -291,10 +291,10 @@ export default function LiveShowPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
               Additional Services
             </h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-base sm:text-lg md:text-xl text-gray-300">
               Enhance your live show with these professional add-on services
             </p>
           </motion.div>
@@ -320,7 +320,7 @@ export default function LiveShowPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 px-6 bg-[#0b0f19]">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-[#0b0f19]">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -328,7 +328,7 @@ export default function LiveShowPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
               Why Choose Our Live Sound Services?
             </h2>
           </motion.div>
@@ -383,17 +383,17 @@ export default function LiveShowPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 text-center bg-gradient-to-r from-[#1a1f2e] to-[#2a2f3e]">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 text-center bg-gradient-to-r from-[#1a1f2e] to-[#2a2f3e]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
             Ready to Amplify Your Event?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
             Get in touch today to discuss your live sound needs and receive a custom quote for your event.
           </p>
           

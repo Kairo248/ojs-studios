@@ -42,7 +42,7 @@ export default function About() {
           className="space-y-6"
         >
           <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-            I'm a passionate sound engineer with years of experience mixing and
+            I&apos;m a passionate sound engineer with years of experience mixing and
             mastering for artists, events, and podcasts. I provide high-quality
             audio experiences through professional gear and precise attention to
             detail.
@@ -50,7 +50,7 @@ export default function About() {
           
           <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
             Whether you need crystal-clear sound for a live show or polished
-            tracks for your album, I've got you covered with state-of-the-art
+            tracks for your album, I&apos;ve got you covered with state-of-the-art
             equipment and expert knowledge.
           </p>
 
