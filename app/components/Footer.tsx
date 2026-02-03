@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Facebook, Instagram, Twitter, Youtube, Mail, Phone } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, Phone, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   const socialLinks = [
@@ -17,10 +17,10 @@ export default function Footer() {
       color: "hover:text-pink-500" 
     },
     { 
-      icon: Mail, 
-      href: "mailto:Lsstudios@gmail.com", 
-      label: "Email",
-      color: "hover:text-[#00b4d8]" 
+      icon: MessageCircle, 
+      href: "https://wa.me/27732933543", 
+      label: "WhatsApp",
+      color: "hover:text-green-500" 
     },
     { 
       icon: Phone, 
